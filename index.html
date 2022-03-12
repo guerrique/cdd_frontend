@@ -3,11 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+
+  <script defer src="js/script.js"></script>
   <title>China Documentaries Database</title>
 </head>
 <body>
-  <h1>Bonjour World</h1>
+  <div class="header header-homepage">
+    <div class="header-top">
+      <a href="">
+        <img class="logo" src="img/CDD-logo.png" alt="China Documentaries Database logo">
+      </a>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <a href="#" class="main-nav-link">HOME</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ Search</a>
+          </li>
+          <li>
+            <a href="authors.html" class="main-nav-link">+ Find by author</a>
+          </li>
+          <li>
+            <a href="movies.html" class="main-nav-link">+ Find by title</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ Get a random one</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ About</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">&nbsp;</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link admin-link">+ Add a doc</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link admin-link">+ Add an author</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="search-bar-homepage">
+      <input type="search" placeholder="Search">
+      <ion-icon class="icon-search" name="search-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="section-findby section-findby-author">
+    <a href="authors.html">
+      <div class="container flexbox-center">
+          <div class="findby-box">
+            <h2>Documentaries</h2>
+            <p>by author</p>
+          </div>
+      </div>
+    </a>
+  </div>
+  <div class="section-findby section-findby-title">
+    <a href="">
+      <div class="container flexbox-center">
+          <div class="findby-box">
+            <h2>Documentaries</h2>
+            <p>by title</p>
+          </div>
+      </div>
+    </a>
+  </div>
+  <div class="section-featured">
+    <div class="container">
+      <h1 class="featured-title">Featured this week</h1>
+      <div class="featured-box">
+          <h2>Behemoth</h2>
+          <a class="featured-link-author" href="#"><p>by Zhao Liang</p></a>
+          <a class="featured-link-movie" href="#">
+            <img class="featured-movie-img" src="img/movies/behemoth.jpg" alt="">
+          </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
