@@ -3,13 +3,13 @@
 const sectionAuthorContainer = document.querySelector('.section-author');
 
 
-const showDoc = async function() {
+const showDir = async function() {
   try {
     // fetch method returns a response object.
     // we then call the json method on that response, which returns another promise
     // which we then have to await again, and in the end we get the data stored in that variable
     const res = await
-      fetch('http://localhost:3000/directors/55');
+      fetch('http://localhost:3000/directors/58');
 
       const data = await res.json();
 
@@ -23,7 +23,8 @@ const showDoc = async function() {
         bioShort: data.bio_short,
         bioLong: data.bio_long,
         bioSource: data.bio_source,
-        usefulLinks: data.useful_links
+        usefulLinks: data.useful_links,
+        docs: data.docs
       };
 
       const sectionAuthorMarkup = `<div class="section-author">
@@ -49,11 +50,12 @@ console.log('----------------------------------');
 console.log(data.docs);
 
 console.log(director);
+console.log(director.docs);
   } catch (err) {
     alert(err);
   }
 }
 
-// window.onload(showDoc());
-window.addEventListener('load', showDoc);
+// window.onload(showDir());
+window.addEventListener('load', showDir);
 
