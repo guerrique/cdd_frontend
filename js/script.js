@@ -45,17 +45,17 @@ allLinks.forEach(function(link) {
 ///////////////////////////////////////////////////////////////
 // TOGGLE CONTENT
 
-const docSumEl = document.querySelectorAll('.doc-summary');
+const docSumEl = document.querySelectorAll('.section-doc');
 docSumEl.forEach(el => el.addEventListener('click', function(e) {
   e.target.closest('.doc-summary').classList.toggle('active');
 }));
 
-const docAwardEl = document.querySelectorAll('.doc-awards');
-docAwardEl.forEach(el => el.addEventListener('click', function(e) {
-  e.target.closest('.doc-awards').classList.toggle('active');
-  console.log(e.target.closest('.doc-awards').classList);
-}))
-;
+// const docAwardEl = document.querySelectorAll('.doc-awards');
+// docAwardEl.forEach(el => el.addEventListener('click', function(e) {
+//   e.target.closest('.doc-awards').classList.toggle('active');
+//   console.log(e.target.closest('.doc-awards').classList);
+// }))
+// ;
 
 // const authBioEl = document.querySelectorAll('.section-author-bio');
 // authBioEl.forEach(el => el.addEventListener('click', function(e) {

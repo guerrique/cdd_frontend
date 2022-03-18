@@ -3,12 +3,9 @@
 import * as model from '../models/directorModel.js';
 import directorView from '../views/directorView.js';
 
-// const directorContainer = document.querySelector('.section-author');
-
 const controlDirector = async function() {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
 
     if (!id) return
 
@@ -26,3 +23,6 @@ const controlDirector = async function() {
 };
 
 ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, controlDirector));
+
+
+
