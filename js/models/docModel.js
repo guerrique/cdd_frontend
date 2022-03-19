@@ -13,7 +13,7 @@ export const loadDoc = async function(id) {
     if(!res.ok) throw new Error(`${data.message} (${res.status})`);
 
     const doc = data.data.attributes;
-    console.log(doc);
+    // console.log(doc);
 
     const flattenObject = (obj) => {
       const flattened = {}
@@ -47,6 +47,7 @@ export const loadDoc = async function(id) {
       duration: doc.duration,
       trailerLink: doc.trailer_link,
       usefulLinks: doc.useful_links,
+      awards: doc.awards,
       directors: directors
     };
     console.log(state.doc);

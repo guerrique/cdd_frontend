@@ -6,7 +6,7 @@ import docView from '../views/docView.js';
 const controlDoc = async function() {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
+    // console.log(id);
 
     if(!id) return
 
@@ -25,7 +25,7 @@ const controlDoc = async function() {
 
 // ---------------------------------------------------------------------------------
 const docSumEl = document.querySelector('.section-doc');
-console.log(docSumEl);
+// console.log(docSumEl);
 docSumEl.addEventListener('click', function(e) {
     e.target.closest('.doc-summary').classList.toggle('active');
 

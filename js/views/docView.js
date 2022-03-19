@@ -1,12 +1,16 @@
 class DocView {
   #parentElement = document.querySelector('.section-doc');
+  #moreInfoElement = document.querySelector('.doc-more-infos');
   #data;
 
   render(data) {
     this.#data = data;
     const markup = this.#generateMarkup();
+    const markupInfo = this.#generateMarkupInfo();
     this.#clear();
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
+    this.#moreInfoElement.insertAdjacentHTML('afterbegin', markupInfo);
+
   }
 
   #clear () {
@@ -14,12 +18,16 @@ class DocView {
   }
 
   #generateMarkup() {
-    return `<div class="section-doc">
+    return `
       <h2 class="doc-title">
         ${this.#data.name}
       </h2>
       <h3 class="doc-author">
-        by <a href="#"></a>
+       by
+        ${this.#data.directors.map(director => {
+          return `<a href="#">${director.name} </a>`
+        })}
+
       </h3>
 
       <div class="doc-infos">
@@ -44,37 +52,39 @@ class DocView {
           </p>
         </div>
       </div>
-      <div class="doc-awards">
+      ${this.#data.awards.length === 0 ? '' : `<div class="doc-awards">
         <h3>Awards</h3>
         <div class="doc-awards-short">
           <ul class="doc-awards-list">
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Golden gate award 2010 - San Francisco international film festival - Investigative documentary prize</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Riverrun 2010 - Best documentary</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - IDFA 2009 - Best feature length documentary
-            <ion-icon class="plus-icon" name="add-circle-outline"></ion-icon>
-            </li>
-
-          </ul>
-
-        </div>
-        <div class="doc-awards-long">
-          <ul class="doc-awards-list">
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - RIDM 2009 - Best canadian film</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Whistler film festival 2009 - Best feature documentary</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Victoria film festival 2010 - Best documentary</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Official selection - Sundance film festival 2010</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Grand jury prize for outstanding documentary feature</li>
-            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Best cinematography</li>
+            ${this.#data.awards.map(award => {
+              return `<li><ion-icon class="star-icon" name="star-outline"></ion-icon> ${award}</li>`
+            }).join('')}
           </ul>
         </div>
-      </div>
+      </div>` }
 
-      <div class="doc-trailer">
+      ${!(this.#data.trailerLink) ? '' : `<div class="doc-trailer">
         <h3>Official Trailer</h3>
         ${this.#data.trailerLink}
-      </div>
-    </div>`
+      </div>`}
+    </div>
+  `
   };
+
+  #generateMarkupInfo() {
+    return `${!(this.#data.usefulLinks) ? '' : `
+      <div class="container">
+        <h2>To go further...</h2>
+        <div class="doc-links">
+          <ul class="doc-links-list">
+          ${this.#data.usefulLinks.map(link => {
+            return `<li>
+              <a href=${link[1]}>${link[0]}</a>
+            </li>`
+          })}
+          </ul>
+        </div>`}`
+  }
 }
 
 export default new DocView();
