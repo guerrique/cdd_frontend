@@ -14,8 +14,6 @@ export const loadDirector = async function(id) {
     if(!res.ok) throw new Error(`${data.message} (${res.status})`);
 
     const director = data.data.attributes;
-    // console.log(data.included);
-    // console.log(data.included[0]);
 
     const flattenObject = (obj) => {
       const flattened = {}

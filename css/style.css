@@ -594,20 +594,21 @@ input::placeholder {
   margin-top: 1.6rem;
   background-color: #efefef;
   padding: 1.2rem 0.8rem;
+  margin-bottom:  2rem;
 }
 
 .doc-awards h3 {
   margin-bottom: 1.6rem;
 }
 
-.doc-awards-long {
+/*.doc-awards-long {
   display: none;
-}
+}*/
 
-.active .doc-awards-long {
+/*.active .doc-awards-long {
   display: block;
   margin-top: 1.6rem;
-}
+}*/
 
 .doc-awards-list {
   padding: 0 1.2rem;
@@ -655,7 +656,7 @@ input::placeholder {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.4rem;
 }
 
 .doc-links-list a:link,

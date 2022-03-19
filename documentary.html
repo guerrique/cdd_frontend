@@ -15,8 +15,10 @@
 
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
-  <script defer src="js/script.js"></script>
-  <script defer src="js/doc.js"></script>
+  <!-- <script defer src="js/script.js"></script> -->
+  <!-- <script defer src="js/doc.js"></script> -->
+  <script type="module" defer src="js/controllers/docController.js"></script>
+
 
   <title>China Documentaries Database</title>
 </head>
@@ -64,71 +66,72 @@
     </div>
   </div>
   <div class="container">
-    <h2 class="doc-title">
-      The last train home
-    </h2>
-    <h3 class="doc-author">
-      by <a href="#">Fan Lixin</a>
-    </h3>
+    <div class="section-doc">
+      <!-- <h2 class="doc-title">
+        The last train home
+      </h2>
+      <h3 class="doc-author">
+        by <a href="#">Fan Lixin</a>
+      </h3>
 
-    <div class="doc-infos">
-      <div class="doc-year flex-center"><ion-icon class="doc-icon" name="calendar-number-outline"></ion-icon>2009</div>
-      <div class="doc-duration flex-center"><ion-icon class="doc-icon" name="time-outline"></ion-icon>1h24m</div>
-      <div class="doc-chinese-name">
-      归途列车 gui tu lie che</div>
-    </div>
-
-    <img class="doc-poster" src="img/last-train-home-poster.jpg" alt="">
-
-    <div class="doc-summary">
-      <div class="doc-summary-short">
-        <p>
-          Every spring, China’s cities are plunged into chaos as 130 million migrant workers journey to their home villages for the New Year’s holiday. This mass exodus is the world’s largest human migration—an epic spectacle that reveals a country tragically caught between its rural past and industrial future.
-          <ion-icon class="plus-icon" name="add-circle-outline"></ion-icon>
-        </p>
+      <div class="doc-infos">
+        <div class="doc-year flex-center"><ion-icon class="doc-icon" name="calendar-number-outline"></ion-icon>2009</div>
+        <div class="doc-duration flex-center"><ion-icon class="doc-icon" name="time-outline"></ion-icon>1h24m</div>
+        <div class="doc-chinese-name">
+        归途列车 gui tu lie che</div>
       </div>
-      <div class="doc-summary-long">
-        <p>
-          Working over several years in classic verité style Chinese-Canadian filmmaker Lixin Fan (with the producers of the award-winning hit documentary Up the Yangtze) travels with one couple who have embarked on this annual trek for almost two decades. Like so many of China’s rural poor, Zhang Changhua and Chen Suqin left behind their two infant children for grueling factory jobs. Their daughter Qin—now a restless and rebellious teenager—both bitterly resents their absence and longs for her own freedom away from school, much to the utter devastation of her parents.
-        </p>
-        <p>
-          Emotionally engaging and starkly beautiful, Last Train Home’s intimate observation of one fractured family sheds light on the human cost of China’s ascendance as an economic superpower.
-        </p>
+
+      <img class="doc-poster" src="img/last-train-home-poster.jpg" alt="">
+
+      <div class="doc-summary">
+        <div class="doc-summary-short">
+          <p>
+            Every spring, China’s cities are plunged into chaos as 130 million migrant workers journey to their home villages for the New Year’s holiday. This mass exodus is the world’s largest human migration—an epic spectacle that reveals a country tragically caught between its rural past and industrial future.
+            <ion-icon class="plus-icon" name="add-circle-outline"></ion-icon>
+          </p>
+        </div>
+        <div class="doc-summary-long">
+          <p>
+            Working over several years in classic verité style Chinese-Canadian filmmaker Lixin Fan (with the producers of the award-winning hit documentary Up the Yangtze) travels with one couple who have embarked on this annual trek for almost two decades. Like so many of China’s rural poor, Zhang Changhua and Chen Suqin left behind their two infant children for grueling factory jobs. Their daughter Qin—now a restless and rebellious teenager—both bitterly resents their absence and longs for her own freedom away from school, much to the utter devastation of her parents.
+          </p>
+          <p>
+            Emotionally engaging and starkly beautiful, Last Train Home’s intimate observation of one fractured family sheds light on the human cost of China’s ascendance as an economic superpower.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="doc-awards">
-      <h3>Awards</h3>
-      <div class="doc-awards-short">
-        <ul class="doc-awards-list">
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Golden gate award 2010 - San Francisco international film festival - Investigative documentary prize</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Riverrun 2010 - Best documentary</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - IDFA 2009 - Best feature length documentary
-          <ion-icon class="plus-icon" name="add-circle-outline"></ion-icon>
-          </li>
+      <div class="doc-awards">
+        <h3>Awards</h3>
+        <div class="doc-awards-short">
+          <ul class="doc-awards-list">
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Golden gate award 2010 - San Francisco international film festival - Investigative documentary prize</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Riverrun 2010 - Best documentary</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - IDFA 2009 - Best feature length documentary
+            <ion-icon class="plus-icon" name="add-circle-outline"></ion-icon>
+            </li>
 
-        </ul>
+          </ul>
 
+        </div>
+        <div class="doc-awards-long">
+          <ul class="doc-awards-list">
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - RIDM 2009 - Best canadian film</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Whistler film festival 2009 - Best feature documentary</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Victoria film festival 2010 - Best documentary</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Official selection - Sundance film festival 2010</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Grand jury prize for outstanding documentary feature</li>
+            <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Best cinematography</li>
+          </ul>
+        </div>
       </div>
-      <div class="doc-awards-long">
-        <ul class="doc-awards-list">
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - RIDM 2009 - Best canadian film</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Whistler film festival 2009 - Best feature documentary</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Victoria film festival 2010 - Best documentary</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Official selection - Sundance film festival 2010</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Grand jury prize for outstanding documentary feature</li>
-          <li><ion-icon class="star-icon" name="star-outline"></ion-icon> Winner - Los Angeles asian pacific film festival 2010 - Best cinematography</li>
-        </ul>
+
+      <div class="doc-trailer">
+        <h3>Official Trailer</h3>
+        <iframe class="doc-trailer-video" src="https://www.youtube.com/embed/X3NZUt5W_ok" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
-
-    <div class="doc-trailer">
-      <h3>Official Trailer</h3>
-      <iframe class="doc-trailer-video" src="https://www.youtube.com/embed/X3NZUt5W_ok" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
+    </div> -->
   </div>
   <div class="doc-more-infos">
-    <div class="container">
+<!--     <div class="container">
       <h2>To go further...</h2>
       <div class="doc-links">
         <ul class="doc-links-list">
@@ -146,7 +149,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
 <!--  -->
   <footer>
