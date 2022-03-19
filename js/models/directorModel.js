@@ -1,6 +1,9 @@
 // state and business logic that manipulates the state
 // http library (responsible for making and receiving AJAX requests)
 
+import { API_URL } from '../config.js';
+import { getJSON } from '../helpers.js';
+
 export const state = {
   director: {}
 };
@@ -8,13 +11,11 @@ export const state = {
 export const loadDirector = async function(id) {
   try {
 
-    const res = await fetch(`http://localhost:3000/directors/${id}`);
-    const data = await res.json();
+    const data = await getJSON(`${API_URL}directors/${id}`)
 
-    if(!res.ok) throw new Error(`${data.message} (${res.status})`);
 
-    const director = data.data.attributes;
 
+    // Getting the related Docs infos nicely flattened
     const flattenObject = (obj) => {
       const flattened = {}
 
@@ -35,6 +36,7 @@ export const loadDirector = async function(id) {
       return doc;
     });
 
+    const director = data.data.attributes;
     state.director = {
       id: id,
       name: director.name,
@@ -47,7 +49,7 @@ export const loadDirector = async function(id) {
     };
     // console.log(state.director);
   } catch (err) {
-    alert(err);
+    console.error(`${err}`);
   }
 };
 
