@@ -5,7 +5,8 @@ import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
 
 export const state = {
-  director: {}
+  director: {},
+  directors: []
 };
 
 export const loadDirector = async function(id) {
@@ -52,6 +53,7 @@ export const loadDirector = async function(id) {
     console.error(`${err}`);
   }
 };
+
 
 
 
