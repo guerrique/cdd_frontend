@@ -17,6 +17,10 @@ class DocView {
     this.#parentElement.innerHTML = '';
   }
 
+  addHandlerRender(handler) {
+    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
+  }
+
   #generateMarkup() {
     return `
       <h2 class="doc-title">
