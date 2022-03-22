@@ -21,7 +21,6 @@ const controlDoc = async function() {
   }
 };
 
-['hashchange', 'load'].forEach(ev => window.addEventListener(ev, controlDoc));
 
 // ---------------------------------------------------------------------------------
 const docSumEl = document.querySelector('.section-doc');
@@ -41,3 +40,8 @@ console.log(e);
 //   console.log(e);
 
 // });
+
+const init = function() {
+  docView.addHandlerRender(controlDoc);
+};
+init();

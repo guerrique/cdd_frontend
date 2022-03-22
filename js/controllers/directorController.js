@@ -22,7 +22,9 @@ const controlDirector = async function() {
   }
 };
 
-['hashchange', 'load'].forEach(ev => window.addEventListener(ev, controlDirector));
-
+const init = function() {
+  directorView.addHandlerRender(controlDirector);
+};
+init();
 
 
