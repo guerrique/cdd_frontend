@@ -5,15 +5,13 @@ import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
 
 export const state = {
-  director: {},
-  directors: []
+  director: {}
 };
 
 export const loadDirector = async function(id) {
   try {
-
-    const data = await getJSON(`${API_URL}directors/${id}`)
-
+    const data = await getJSON(`${API_URL}directors/${id}`);
+    // console.log(data);
 
 
     // Getting the related Docs infos nicely flattened
@@ -31,11 +29,14 @@ export const loadDirector = async function(id) {
       return flattened;
     };
 
-    const docs = data.included.map(doc => {
+      const docs = [];
+    if(data.included) {
+      const docs = data.included.map(doc => {
       doc = flattenObject(doc);
       delete doc.type;
       return doc;
     });
+    }
 
     const director = data.data.attributes;
     state.director = {
@@ -48,7 +49,7 @@ export const loadDirector = async function(id) {
       usefulLinks: director.useful_links,
       docs: docs
     };
-    // console.log(state.director);
+    console.log(state.director);
   } catch (err) {
     console.error(`${err}`);
   }

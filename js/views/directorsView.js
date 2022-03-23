@@ -5,7 +5,8 @@ class DirectorsView {
 
   render(data) {
     this._data = data;
-    this._data.map(dir => console.log(dir.name));
+    // console.log(this._data);
+    // this._data.map(dir => console.log(dir.name));
     const markup = this._generateMarkup();
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
@@ -20,12 +21,14 @@ class DirectorsView {
   }
 
   _generateMarkup() {
-    return `<ul class="authors-list">
-      ${this._data.map(dir => {
-        return `<li>${dir.name}</li>`
-      }).join('')}</ul>`
+    return Object.entries(this._data).map((ent) => {
+      return `<h1 class="abc-title">${ent[0]}</h1>
+                <ul class="authors-list">
+                  ${ent[1].map(obj => {
+        return `<li><a href="author.html#${obj.id}">${obj.name}</a></li>`
+         }).join('')}</ul>`
+      })
     }
   }
-
 
 export default new DirectorsView();
