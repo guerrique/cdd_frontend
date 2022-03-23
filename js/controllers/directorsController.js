@@ -3,10 +3,11 @@ import directorsView from '../views/directorsView.js';
 
 const controlDirectors = async function() {
   try {
-    // get directors from the model
+
+    // LOADING DIRECTORS
     await model.loadDirectors();
 
-    // render the directors
+    // RENDERING DIRECTORS
     directorsView.render(model.state.sortedDirectors);
 
   } catch(err) {
