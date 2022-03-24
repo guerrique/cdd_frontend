@@ -7,12 +7,16 @@ const docsController = async function() {
     // LOADING DOCS
     await model.loadDocs();
 
+    // RENDERING DOCS
+    docsView.render(model.state.docs);
+
   } catch(err) {
     console.log(err);
   }
 }
 
 const init = function() {
-  window.addEventListener('load', docsController);
+  docsView.addHandlerRender(docsController);
+  // window.addEventListener('load', docsController);
 }
 init();
