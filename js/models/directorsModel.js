@@ -1,9 +1,8 @@
 import { API_URL } from '../config.js';
-import { getJSON } from '../helpers.js';
+import { getJSON, sortArrObj } from '../helpers.js';
 
 export const state = {
-  directors: [],
-  sortedDirectors: []
+  directors: []
 }
 
 export const loadDirectors = async function() {
@@ -19,24 +18,13 @@ export const loadDirectors = async function() {
         res.name = obj.attributes.name.replace(/[^a-z\d\s]+/gi,'').trim();
         formatted.push(res);
       });
-      formatted.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
-      return formatted;
-    }
-
-    const sortDirectors = function(directors) {
-      let sortedDirectors = directors.reduce((previous, current) => {
-        let k = current['name'][0].toLocaleUpperCase();
-        if(previous[k]) previous[k].push(current);
-        else previous[k] = [current];
-          return previous;
-      }, {});
-      return sortedDirectors;
+      return sortArrObj(formatted);
     }
 
     this.state.directors = formatResponse(data.data);
-    this.state.sortedDirectors = sortDirectors(this.state.directors);
 
   } catch(err) {
-    console.log(err);
+    console.log(`Error from the directorSS model:${err}`);
+    throw(err);
   }
 }

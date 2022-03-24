@@ -53,7 +53,8 @@ export const loadDoc = async function(id) {
     };
     // console.log(state.doc);
   } catch (err) {
-    console.error(`${err}`);
+    console.error(`Error from the doc model: ${err}`);
+    throw(err);
   }
 };
 

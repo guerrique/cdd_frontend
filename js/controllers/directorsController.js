@@ -8,7 +8,7 @@ const controlDirectors = async function() {
     await model.loadDirectors();
 
     // RENDERING DIRECTORS
-    directorsView.render(model.state.sortedDirectors);
+    directorsView.render(model.state.directors);
 
   } catch(err) {
     console.log(err);

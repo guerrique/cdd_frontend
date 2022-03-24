@@ -51,7 +51,8 @@ export const loadDirector = async function(id) {
     };
     console.log(state.director);
   } catch (err) {
-    console.error(`${err}`);
+    console.error(`Error from the director model: ${err}`);
+    throw(err);
   }
 };
 
