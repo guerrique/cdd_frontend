@@ -7,8 +7,10 @@ class AddDirectorView {
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
       handler(data);
+      // console.log(data);
     });
   }
+
 };
 
 export default new AddDirectorView();

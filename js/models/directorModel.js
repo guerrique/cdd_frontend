@@ -61,16 +61,25 @@ export const uploadDirector = async function(newDirector) {
   try {
     const director = {
       name: newDirector.name,
-      useful_links: [newDirector.usefulLinks],
+      useful_links: [newDirector.usefulLinksText1, newDirector.usefulLinksLink1,newDirector.usefulLinksText2, newDirector.usefulLinksLink2,newDirector.usefulLinksText3, newDirector.usefulLinksLink3],
       bio_short: newDirector.bioShort,
       bio_long: newDirector.bioLong,
       birth_year: newDirector.birthYear
     };
-    console.log(director);
-    // console.log(Object.values(director).forEach(val => console.log(val + typeof(val))))
-    console.log(JSON.stringify(director));
     const data = await sendJSON(`${API_URL}/directors`, director);
     console.log(data);
+    state.director = {
+      id: data.data.attributes.id,
+      name: data.data.attributes.name,
+      photo: data.data.attributes.photo,
+      bioLong: data.data.attributes.bio_long,
+      bioShort: data.data.attributes.bio_short,
+      bioSource: data.data.attributes.bio_source,
+      usefulLinks: data.data.attributes.useful_links
+      // ,
+      // docs: docs
+    };
+    console.log(state.director);
   } catch(err) {
     console.log(err);
   }

@@ -26,7 +26,9 @@ const controlDirector = async function() {
 const controlAddDirector = async function(newDirector) {
   try {
     await model.uploadDirector(newDirector);
-    // console.log(newDirector);
+
+    directorView.render(model.state.director);
+    console.log(model.state.director);
   } catch(err) {
 
   }
