@@ -1,13 +1,16 @@
-import View from './view.js';
-
-class AddDirectorView extends View{
+class AddDirectorView {
   _parentElement = document.querySelector('.director-upload');
   _addUsefulLinkBlock = document.querySelector('.useful-link-block');
   _addUsefulLinkButton = document.querySelector('.add-link-button');
 
-  constructor() {
-    super();
-    this._addUsefulLinkField();
+  addHandlerRender(handler) {
+    if (document.querySelector('.director-upload')) {
+      window.addEventListener('load', handler);
+      this._addUsefulLinkField();
+      console.log('tout est bon');
+    } else {
+      console.log('t\'es passé par là mais tu t\'arrete ici');
+    }
   }
 
   _addUsefulLinkField() {
@@ -18,17 +21,12 @@ class AddDirectorView extends View{
     })
   }
 
-  addHandlerRender(handler) {
-    window.addEventListener('load', handler);
-  }
-
   addHandlerUpload(handler) {
     this._parentElement.addEventListener('submit', function(e) {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
       handler(data);
-      // console.log(data);
     });
   }
 
