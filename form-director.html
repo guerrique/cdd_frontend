@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+  <script defer src="js/script.js"></script>
+  <script type="module" defer src="js/controllers/directorController.js"></script>
+
+  <title>Form Director</title>
+</head>
+<body>
+  <div class="header">
+    <div class="header-top">
+      <a href="">
+        <img class="logo" src="img/CDD-logo.png" alt="China Documentaries Database logo">
+      </a>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <a href="#" class="main-nav-link">HOME</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ Search</a>
+          </li>
+          <li>
+            <a href="authors.html" class="main-nav-link">+ Find by author</a>
+          </li>
+          <li>
+            <a href="movies.html" class="main-nav-link">+ Find by title</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ Get a random one</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">+ About</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link">&nbsp;</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link admin-link">+ Add a doc</a>
+          </li>
+          <li>
+            <a href="#" class="main-nav-link admin-link">+ Add an author</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <div class="section-add-director">
+      <form class="director-upload">
+            <h2>Add a Director</h2>
+            <h3><label>Name</label></h3>
+            <input placeholder="木兰 Mu Lan" required name="name" type="text" />
+            <h3><label>Birth year</label></h3>
+            <input class="form-year" name="birthYear" type="text" />
+            <h3><label>Death year</label></h3>
+            <input class="form-year" name="deathYear" type="text" />
+            <h3><label>Photo</label></h3>
+            <input name="photo" type="text" />
+            <h3><label>Short bio</label></h3>
+            <input class="form-bio-text" name="bioShort" type="text" />
+            <h3><label>Long bio</label></h3>
+            <input class="form-bio-text" name="bioLong" type="text">
+            <h3><label>Source for the bio</label></h3>
+            <input name="bioSource" type="text">
+            <h3><label>useful link 1</label></h3>
+            <div class="useful-link-block">
+            <input name="usefulLinksText1" placeholder="title of the link" type="text"><input name="usefulLinksLink1" placeholder="link" type="text"></div>
+            <div class="add-link-section">
+              <ion-icon name="add-circle-outline" class="add-link-button"></ion-icon><span>Add a link</span>
+            </div>
+            <button class="btn upload__btn"><span>Upload</span></button>
+
+        </form>
+      </div>
+  </div>
+</body>
+</html>
