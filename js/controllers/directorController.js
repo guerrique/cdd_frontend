@@ -2,11 +2,12 @@
 
 import * as model from '../models/directorModel.js';
 import directorView from '../views/directorView.js';
+import addDirectorView from '../views/addDirectorView.js';
 
 const controlDirector = async function() {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
+    // console.log(id);
 
     if (!id) return
 
@@ -22,8 +23,18 @@ const controlDirector = async function() {
   }
 };
 
+const controlAddDirector = async function(newDirector) {
+  try {
+    await model.uploadDirector(newDirector);
+    // console.log(newDirector);
+  } catch(err) {
+
+  }
+}
+
 const init = function() {
   directorView.addHandlerRender(controlDirector);
+  addDirectorView.addHandlerUpload(controlAddDirector);
 };
 init();
 

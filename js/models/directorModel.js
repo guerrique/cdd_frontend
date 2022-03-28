@@ -3,6 +3,7 @@
 
 import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
+import { sendJSON } from '../helpers.js';
 
 export const state = {
   director: {}
@@ -55,6 +56,25 @@ export const loadDirector = async function(id) {
     throw(err);
   }
 };
+
+export const uploadDirector = async function(newDirector) {
+  try {
+    const director = {
+      name: newDirector.name,
+      useful_links: [newDirector.usefulLinks],
+      bio_short: newDirector.bioShort,
+      bio_long: newDirector.bioLong,
+      birth_year: newDirector.birthYear
+    };
+    console.log(director);
+    // console.log(Object.values(director).forEach(val => console.log(val + typeof(val))))
+    console.log(JSON.stringify(director));
+    const data = await sendJSON(`${API_URL}/directors`, director);
+    console.log(data);
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 
 

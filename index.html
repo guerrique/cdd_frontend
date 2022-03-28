@@ -16,6 +16,8 @@
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
   <script defer src="js/script.js"></script>
+  <script type= "module" defer src="js/controllers/directorController.js"></script>
+
   <!-- <script defer src="js/index.js"></script> -->
 
   <title>China Documentaries Database</title>
@@ -77,6 +79,25 @@
       </div>
     </a>
   </div>
+    <!-- PART FROM RECIPE PROJECT -->
+  <div class="container">
+    <div class="add-director-form">
+      <form class="upload">
+          <h2>Director data</h2>
+          <p><label>Name</label></p>
+          <p><input value="Testname" required name="name" type="text" /></p>
+          <p><label>bio-short</label></p>
+          <p><input value="Testbio text" name="bioShort" type="text" /></p>
+          <p><label>bio-long</label></p>
+          <p><input name="bioLong" type="text"></p>
+          <p><label>birth year</label></p>
+          <p><input value="1987" name="birthYear" type="text" /></p>
+          <p><label>useful links</label></p>
+          <p><input name="usefulLinks" type="text"></p>
+          <button class="btn upload__btn"><span>Upload</span></button>
+      </form>
+    </div>
+    </div>
   <div class="section-findby section-findby-title">
     <a href="">
       <div class="container flexbox-center">
@@ -99,5 +120,7 @@
       </div>
     </div>
   </div>
+
+
 </body>
 </html>
