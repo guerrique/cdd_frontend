@@ -11,6 +11,9 @@ class AddDirectorView {
     });
   }
 
+  addHandlerRedirect(id) {
+    window.location.href = `http://127.0.0.1:8887/author.html#${id}`;
+  }
 };
 
 export default new AddDirectorView();

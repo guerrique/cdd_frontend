@@ -69,15 +69,13 @@ export const uploadDirector = async function(newDirector) {
     const data = await sendJSON(`${API_URL}/directors`, director);
     console.log(data);
     state.director = {
-      id: data.data.attributes.id,
+      id: data.data.id,
       name: data.data.attributes.name,
       photo: data.data.attributes.photo,
       bioLong: data.data.attributes.bio_long,
       bioShort: data.data.attributes.bio_short,
       bioSource: data.data.attributes.bio_source,
       usefulLinks: data.data.attributes.useful_links
-      // ,
-      // docs: docs
     };
     console.log(state.director);
   } catch(err) {

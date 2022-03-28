@@ -26,17 +26,18 @@ const controlDirector = async function() {
 const controlAddDirector = async function(newDirector) {
   try {
     await model.uploadDirector(newDirector);
+    console.log(model.state.director.id);
 
-    window.location.href = "http://127.0.0.1:8887/documentary.html";
+    addDirectorView.addHandlerRedirect(model.state.director.id);
+    // window.location.href = `http://127.0.0.1:8887/author.html#${model.state.director.id}`;
     directorView.render(model.state.director);
-    console.log(model.state.director);
   } catch(err) {
 
   }
 }
 
 const init = function() {
-  // directorView.addHandlerRender(controlDirector);
+  directorView.addHandlerRender(controlDirector);
   addDirectorView.addHandlerUpload(controlAddDirector);
 };
 init();
