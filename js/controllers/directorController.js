@@ -27,6 +27,7 @@ const controlAddDirector = async function(newDirector) {
   try {
     await model.uploadDirector(newDirector);
 
+    window.location.href = "http://127.0.0.1:8887/documentary.html";
     directorView.render(model.state.director);
     console.log(model.state.director);
   } catch(err) {
@@ -35,7 +36,7 @@ const controlAddDirector = async function(newDirector) {
 }
 
 const init = function() {
-  directorView.addHandlerRender(controlDirector);
+  // directorView.addHandlerRender(controlDirector);
   addDirectorView.addHandlerUpload(controlAddDirector);
 };
 init();
