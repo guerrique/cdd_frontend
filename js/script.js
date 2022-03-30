@@ -50,30 +50,17 @@ docSumEl.forEach(el => el.addEventListener('click', function(e) {
   e.target.closest('.doc-summary').classList.toggle('active');
 }));
 
-// const docAwardEl = document.querySelectorAll('.doc-awards');
-// docAwardEl.forEach(el => el.addEventListener('click', function(e) {
-//   e.target.closest('.doc-awards').classList.toggle('active');
-//   console.log(e.target.closest('.doc-awards').classList);
-// }))
-// ;
 
-// const authBioEl = document.querySelectorAll('.section-author-bio');
-// authBioEl.forEach(el => el.addEventListener('click', function(e) {
+
+// const authBioEl = document.querySelector('.section-author');
+// authBioEl.addEventListener('click', function(e) {
+
 //   e.target.closest('.section-author-bio').classList.toggle('active');
+
 //   console.log(e.target.closest('.section-author-bio').classList);
 //   console.log(e);
 
-// }));
-
-const authBioEl = document.querySelector('.section-author');
-authBioEl.addEventListener('click', function(e) {
-
-  e.target.closest('.section-author-bio').classList.toggle('active');
-
-  console.log(e.target.closest('.section-author-bio').classList);
-  console.log(e);
-
-});
+// });
 
 ///////////////////////////////////////////////////////////////
 // STICKY NAVIGATION

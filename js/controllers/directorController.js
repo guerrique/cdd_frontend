@@ -25,11 +25,9 @@ const controlDirector = async function() {
 
 const controlAddDirector = async function(newDirector) {
   try {
-    console.log('on est passés');
     await model.uploadDirector(newDirector);
-    // console.log(model.state.director.id);
 
-    // addDirectorView.addHandlerRedirect(model.state.director.id);
+    addDirectorView.addHandlerRedirect(model.state.director.id);
 
 
     // no need?

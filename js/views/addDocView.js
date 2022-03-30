@@ -1,12 +1,15 @@
-class AddDirectorView {
-  _parentElement = document.querySelector('.director-upload');
+class AddDocView {
+  _parentElement = document.querySelector('.doc-upload');
   _addUsefulLinkSection = document.querySelector('.useful-links-section');
   _addUsefulLinkButton = document.querySelector('.add-link-button');
+  _addAwardSection = document.querySelector('.add-award-section');
+  _addAwardButton = document.querySelector('.add-award-button');
 
   // addHandlerRender(handler) {
-  //   if (document.querySelector('.director-upload')) {
+  //   if (document.querySelector('.doc-upload')) {
   //     window.addEventListener('load', handler);
   //     this._addUsefulLinkField();
+  //     this._addAwardField();
   //     console.log('tout est bon');
   //   } else {
   //     console.log('t\'es passé par là mais tu t\'arrete ici');
@@ -16,6 +19,7 @@ class AddDirectorView {
   _addUsefulLinkField() {
     const block = this._addUsefulLinkSection;
     this._addUsefulLinkButton.addEventListener('click', function(e) {
+      console.log(e);
       let p = e.target.parentElement.previousElementSibling.lastElementChild.dataset.id;
 
       const markup = `
@@ -25,11 +29,29 @@ class AddDirectorView {
       </div>`;
 
       block.insertAdjacentHTML('beforeend', markup);
+      console.log(markup);
+    });
+  }
+
+  _addAwardField() {
+    const blockAward = this._addAwardSection;
+    this._addAwardButton.addEventListener('click', function(e) {
+      let p = e.target.parentElement.previousElementSibling.lastElementChild.dataset.id;
+
+      const markup = `<div class="award" data-id="${+p + 1}">
+                <input name="awardText-${+p + 1}" type="text"><p>---</p>
+              </div>`;
+
+      blockAward.insertAdjacentHTML('beforeend', markup);
+      console.log(markup);
     });
   }
 
   addHandlerUpload(handler) {
+    console.log('ça se passe');
     this._addUsefulLinkField();
+    this._addAwardField();
+
     this._parentElement.addEventListener('submit', function(e) {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
@@ -39,12 +61,8 @@ class AddDirectorView {
   }
 
   addHandlerRedirect(id) {
-    window.location.href = `http://127.0.0.1:8887/author.html#${id}`;
+    window.location.href = `http://127.0.0.1:8887/documentary.html#${id}`;
   }
-};
+}
 
-export default new AddDirectorView();
-
-
-
-
+export default new AddDocView();

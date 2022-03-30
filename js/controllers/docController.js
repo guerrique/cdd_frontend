@@ -2,6 +2,7 @@
 
 import * as model from '../models/docModel.js';
 import docView from '../views/docView.js';
+import addDocView from '../views/addDocView.js';
 
 const controlDoc = async function() {
   try {
@@ -22,6 +23,23 @@ const controlDoc = async function() {
   }
 };
 
+const controlAddDoc = async function(newDoc) {
+  try {
+    await model.uploadDoc(newDoc);
+    console.log(model.state.doc.directors);
+    addDocView.addHandlerRedirect(model.state.doc.id);
+  } catch(err) {
+    throw err;
+  }
+}
+
+const init = function() {
+  docView.addHandlerRender(controlDoc);
+  // addDocView.addHandlerRender(controlAddDoc);
+  addDocView.addHandlerUpload(controlAddDoc);
+
+};
+init();
 
 // ---------------------------------------------------------------------------------
 const docSumEl = document.querySelector('.section-doc');
@@ -42,7 +60,3 @@ console.log(e);
 
 // });
 
-const init = function() {
-  docView.addHandlerRender(controlDoc);
-};
-init();
