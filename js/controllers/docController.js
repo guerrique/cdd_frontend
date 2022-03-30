@@ -15,6 +15,7 @@ const controlDoc = async function() {
 
     // RENDERING DOCUMENTARY
     docView.render(model.state.doc);
+    console.log(model.state.doc);
 
   } catch (err) {
     console.log(err);

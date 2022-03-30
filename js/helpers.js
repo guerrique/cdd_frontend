@@ -29,9 +29,7 @@ export const sendJSON = async function(url, uploadData) {
         'Accept': 'application/json'
       },
       body: JSON.stringify(uploadData)
-      // body: uploadData
     });
-    console.log(res);
     const data = await res.json();
     if(!res.ok) throw new Error(`${data.message} (${res.status})`);
     return data;
