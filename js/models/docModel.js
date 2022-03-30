@@ -3,6 +3,8 @@
 
 import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
+import { sendJSON } from '../helpers.js';
+import { fieldsInArray } from '../helpers.js';
 
 export const state = {
   doc: {}
@@ -12,7 +14,7 @@ export const loadDoc = async function(id) {
   try {
 
     const data = await getJSON(`${API_URL}docs/${id}`);
-
+    console.log(data);
 
     // Getting the related Directors infos nicely flattened
     const flattenObject = (obj) => {
@@ -29,11 +31,15 @@ export const loadDoc = async function(id) {
       return flattened;
     };
 
-    const directors = data.included.map(dir => {
-      dir = flattenObject(dir);
-      delete dir.type;
-      return dir;
-    });
+
+    const directors = [];
+    if(data.included) {
+      const directors = data.included.map(dir => {
+        dir = flattenObject(dir);
+        delete dir.type;
+        return dir;
+      });
+    }
 
     const doc = data.data.attributes;
     state.doc = {
@@ -58,6 +64,52 @@ export const loadDoc = async function(id) {
   }
 };
 
+export const uploadDoc = async function(newDoc) {
+  try {
+    const usefulLinks = fieldsInArray(newDoc, 'useful');
+    const awards = fieldsInArray(newDoc, 'award');
+
+    const doc = {
+      name: newDoc.name,
+      chinese_name: newDoc.chineseName,
+      year: newDoc.year,
+      duration: newDoc.duration,
+      poster: newDoc.poster,
+      doc_text_short: newDoc.docTextShort,
+      doc_text_long: newDoc.docTextLong,
+      doc_text_source: newDoc.docTextSource,
+      awards: awards,
+      useful_links: usefulLinks,
+      trailer_link: newDoc.trailerLink
+    };
+
+    const data = await sendJSON(`${API_URL}/docs`, doc);
+
+    state.doc = {
+      id: data.data.id,
+      name: data.data.attributes.name,
+      chineseName: data.data.attributes.chinese_name,
+      year: data.data.attributes.year,
+      duration: data.data.attributes.duration,
+      poster: data.data.attributes.poster,
+      docTextShort: data.data.attributes.doc_text_short,
+      docTextLong: data.data.attributes.doc_text_long,
+      docTextSource: data.data.attributes.doc_text_source,
+      awards: data.data.attributes.awards,
+      usefulLinks: data.data.attributes.useful_links,
+      directors: data.data.relationships.directors
+    }
+
+    const usefulLinksRes = state.doc.usefulLinks;
+    state.doc.usefulLinks = [];
+    while (usefulLinksRes.length > 0) {
+      state.doc.usefulLinks.push(usefulLinksRes.splice(0,2));
+    };
+
+  } catch (err) {
+    throw err;
+  }
+}
 
 
 

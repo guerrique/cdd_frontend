@@ -49,6 +49,13 @@ export const sortArrObj = function(array) {
     return abcSortedArray;
 }
 
+export const fieldsInArray = function(array, keyword) {
+  const returnArr = [];
+    Object.keys(array).forEach(key => {
+      if (key.includes(keyword))  returnArr.push(array[key])
+    });
+    return returnArr;
+}
 
 
 

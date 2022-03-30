@@ -4,6 +4,7 @@
 import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
 import { sendJSON } from '../helpers.js';
+import { fieldsInArray } from '../helpers.js';
 
 export const state = {
   director: {}
@@ -59,14 +60,11 @@ export const loadDirector = async function(id) {
 
 export const uploadDirector = async function(newDirector) {
   try {
-    const usefulLinksArr = [];
-    Object.keys(newDirector).forEach(key => {
-      if (key.includes('useful'))  usefulLinksArr.push(newDirector[key])
-    });
+    const usefulLinks = fieldsInArray(newDirector, 'useful');
 
     const director = {
       name: newDirector.name,
-      useful_links: usefulLinksArr,
+      useful_links: usefulLinks,
       bio_short: newDirector.bioShort,
       bio_long: newDirector.bioLong,
       bio_source: newDirector.bioSource,

@@ -815,3 +815,65 @@ footer {
   gap: 1.2rem;
   /*justify-content: space-around;*/
 }
+
+
+/**********************************************/
+/*ADD A DOCUMENTARY PAGE*/
+/**********************************************/
+
+.section-add-doc {
+  margin-bottom:  20rem;
+}
+
+.section-add-doc h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.section-add-doc h3 {
+  margin-top:  2rem;
+}
+
+.doc-upload {
+  display:  flex;
+  flex-direction:  column;
+  gap: 1rem;
+  width:  100%;
+}
+
+.doc-upload input {
+  width:  100%;
+  padding: 0.4rem 0 0.4rem 0.4rem;
+}
+
+.doc-upload input::placeholder {
+  font-size: 1.2rem;
+}
+
+.form-bio-text {
+  height:  15rem;
+}
+
+.doc-upload button {
+  border-radius:  6px;
+}
+
+.doc-upload .add-link-button {
+  cursor:  pointer;
+  height: 2rem;
+  width: 2rem;
+}
+
+.useful-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.add-link-section {
+  display:  flex;
+  align-items: center;
+  gap: 1.2rem;
+  /*justify-content: space-around;*/
+}
