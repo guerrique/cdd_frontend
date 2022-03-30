@@ -3,6 +3,7 @@
 
 import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
+import { sendJSON } from '../helpers.js';
 
 export const state = {
   director: {}
@@ -55,6 +56,32 @@ export const loadDirector = async function(id) {
     throw(err);
   }
 };
+
+export const uploadDirector = async function(newDirector) {
+  try {
+    const director = {
+      name: newDirector.name,
+      useful_links: [newDirector.usefulLinksText1, newDirector.usefulLinksLink1,newDirector.usefulLinksText2, newDirector.usefulLinksLink2,newDirector.usefulLinksText3, newDirector.usefulLinksLink3],
+      bio_short: newDirector.bioShort,
+      bio_long: newDirector.bioLong,
+      birth_year: newDirector.birthYear
+    };
+    const data = await sendJSON(`${API_URL}/directors`, director);
+    console.log(data);
+    state.director = {
+      id: data.data.id,
+      name: data.data.attributes.name,
+      photo: data.data.attributes.photo,
+      bioLong: data.data.attributes.bio_long,
+      bioShort: data.data.attributes.bio_short,
+      bioSource: data.data.attributes.bio_source,
+      usefulLinks: data.data.attributes.useful_links
+    };
+    console.log(state.director);
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 
 

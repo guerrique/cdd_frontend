@@ -20,10 +20,25 @@ export const getJSON = async function(url) {
   }
 };
 
-// export const sortArrObj = function(array) {
-//   array.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
-//   return array;
-// }
+export const sendJSON = async function(url, uploadData) {
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(uploadData)
+      // body: uploadData
+    });
+    console.log(res);
+    const data = await res.json();
+    if(!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch(err) {
+    throw(err);
+  }
+}
 
 export const sortArrObj = function(array) {
   const sortedArray = array.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
