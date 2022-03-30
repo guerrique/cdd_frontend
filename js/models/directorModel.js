@@ -12,7 +12,7 @@ export const state = {
 export const loadDirector = async function(id) {
   try {
     const data = await getJSON(`${API_URL}directors/${id}`);
-    // console.log(data);
+    console.log(data);
 
 
     // Getting the related Docs infos nicely flattened
@@ -59,12 +59,20 @@ export const loadDirector = async function(id) {
 
 export const uploadDirector = async function(newDirector) {
   try {
+    const usefulLinksArr = [];
+    Object.keys(newDirector).forEach(key => {
+      if (key.includes('useful'))  usefulLinksArr.push(newDirector[key])
+    });
+
     const director = {
       name: newDirector.name,
-      useful_links: [newDirector.usefulLinksText1, newDirector.usefulLinksLink1,newDirector.usefulLinksText2, newDirector.usefulLinksLink2,newDirector.usefulLinksText3, newDirector.usefulLinksLink3],
+      useful_links: usefulLinksArr,
       bio_short: newDirector.bioShort,
       bio_long: newDirector.bioLong,
-      birth_year: newDirector.birthYear
+      bio_source: newDirector.bioSource,
+      birth_year: newDirector.birthYear,
+      death_year: newDirector.deathYear,
+      photo: newDirector.photo
     };
     const data = await sendJSON(`${API_URL}/directors`, director);
     console.log(data);
@@ -75,11 +83,21 @@ export const uploadDirector = async function(newDirector) {
       bioLong: data.data.attributes.bio_long,
       bioShort: data.data.attributes.bio_short,
       bioSource: data.data.attributes.bio_source,
-      usefulLinks: data.data.attributes.useful_links
+      usefulLinks: data.data.attributes.useful_links,
+      birthYear: data.data.attributes.birth_year,
+      deathYear: data.data.attributes.death_year,
+      docs: data.data.relationships.docs
     };
-    console.log(state.director);
+
+    const usefulLinksRes = state.director.usefulLinks;
+    const usefulLinks = [];
+    while (usefulLinksRes.length > 0) {
+      usefulLinks.push(usefulLinksRes.splice(0,2));
+    };
+    state.director.usefulLinks = usefulLinks;
   } catch(err) {
     console.log(err);
+    throw(err);
   }
 }
 

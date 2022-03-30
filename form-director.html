@@ -65,27 +65,27 @@
       <form class="director-upload">
             <h2>Add a Director</h2>
             <h3><label>Name</label></h3>
-            <input placeholder="木兰 Mu Lan" required name="name" type="text" />
+            <input placeholder="木兰 Mu Lan" value="Guerrique" required name="name" type="text" />
             <h3><label>Birth year</label></h3>
-            <input class="form-year" name="birthYear" type="text" />
+            <input class="form-year" value="1980" name="birthYear" type="text" />
             <h3><label>Death year</label></h3>
             <input class="form-year" name="deathYear" type="text" />
             <h3><label>Photo</label></h3>
-            <input name="photo" type="text" />
+            <input name="photo" value="guerrique.jpg" type="text" />
             <h3><label>Short bio</label></h3>
-            <input class="form-bio-text" name="bioShort" type="text" />
+            <input class="form-bio-text" value="Searching, sorting, and filtering in Rails controllers can be a pain. ElasticSearch and Solr are great, high-powered solutions, but are " name="bioShort" type="text" />
             <h3><label>Long bio</label></h3>
-            <input class="form-bio-text" name="bioLong" type="text">
+            <input class="form-bio-text" value=" I decided to add search bar in my application.html.erb , so i can search through my entire application . Write this code above : At this stage .." name="bioLong" type="text">
             <h3><label>Source for the bio</label></h3>
-            <input name="bioSource" type="text">
+            <input name="bioSource" value= "wikipedia" type="text">
             <div class="useful-links-section">
               <h3><label>Useful links</label></h3>
               <div class="useful-link" data-id="1">
-                <input name="usefulLinkText-1" class="useful-link-text" placeholder="title of the link" data-link-text="1" type="text"><input name="usefulLinksLink-1" data-link="1" placeholder="link" type="text"><p>---</p>
+                <input name="usefulLinkText-1" class="useful-link-text" placeholder="title of the link" data-link-text="1" value="Inverview with NYT" type="text"><input name="usefulLinksLink-1" data-link="1" value="http://www.guerrique.com" placeholder="link" type="text"><p>---</p>
               </div>
-<!--               <div class="useful-link" data-id="1">
-                <input name="usefulLinkText" class="useful-link-text" placeholder="title of the link" data-link-text="1" type="text"><input name="usefulLinksLink" data-link="1" placeholder="link" type="text"><p>---</p>
-              </div> -->
+              <div class="useful-link" data-id="2">
+                <input name="usefulLinkText-2" class="useful-link-text" value="Inverview with me" placeholder="title of the link" data-link-text="1" type="text"><input name="usefulLinksLink-2" value="http://www.marcelle.com" data-link="1" placeholder="link" type="text"><p>---</p>
+              </div>
             </div>
             <div class="add-link-section">
               <ion-icon name="add-circle-outline" class="add-link-button"></ion-icon><span>Add a link</span>
