@@ -1,6 +1,6 @@
 class AddDirectorView {
   _parentElement = document.querySelector('.director-upload');
-  _addUsefulLinkBlock = document.querySelector('.useful-link-block');
+  _addUsefulLinkSection = document.querySelector('.useful-links-section');
   _addUsefulLinkButton = document.querySelector('.add-link-button');
 
   addHandlerRender(handler) {
@@ -14,10 +14,22 @@ class AddDirectorView {
   }
 
   _addUsefulLinkField() {
-    const block = this._addUsefulLinkBlock;
+    const block = this._addUsefulLinkSection;
     this._addUsefulLinkButton.addEventListener('click', function(e) {
-      const markup = `<input name="usefulLinksText1" placeholder="title of the link" type="text"><input name="usefulLinksLink1" placeholder="link" type="text">`;
+      let p = e.target.parentElement.previousElementSibling.lastElementChild.dataset.id;
+
+      console.log('parent element previous sibling', e.target.parentElement.previousElementSibling.lastElementChild);
+
+      const markup = `
+      </div><div class="useful-link" data-id="${+p + 1}" id="${+p+1}">
+        <input name="usefulLinkText-${+p + 1}" class="useful-link-text" placeholder="title of the link" data-link-text="${+p+1}" type="text">
+        <input name="usefulLinksLink-${+p + 1}" data-link="${+p+1}" placeholder="link" type="text"><p>---</p>
+      </div>`;
+
+      // block.previousElementSibling.insertAdjacentHTML('beforeend', markup);
       block.insertAdjacentHTML('beforeend', markup);
+      console.log(markup);
+
     })
   }
 
@@ -26,6 +38,7 @@ class AddDirectorView {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
+      console.log(data);
       handler(data);
     });
   }

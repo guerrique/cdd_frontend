@@ -40,6 +40,7 @@ const controlAddDirector = async function(newDirector) {
 const init = function() {
   directorView.addHandlerRender(controlDirector);
   addDirectorView.addHandlerRender(controlAddDirector);
+  addDirectorView.addHandlerUpload(controlAddDirector);
 };
 init();
 

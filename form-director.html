@@ -78,9 +78,15 @@
             <input class="form-bio-text" name="bioLong" type="text">
             <h3><label>Source for the bio</label></h3>
             <input name="bioSource" type="text">
-            <h3><label>useful link 1</label></h3>
-            <div class="useful-link-block">
-            <input name="usefulLinksText1" placeholder="title of the link" type="text"><input name="usefulLinksLink1" placeholder="link" type="text"></div>
+            <div class="useful-links-section">
+              <h3><label>Useful links</label></h3>
+              <div class="useful-link" data-id="1">
+                <input name="usefulLinkText-1" class="useful-link-text" placeholder="title of the link" data-link-text="1" type="text"><input name="usefulLinksLink-1" data-link="1" placeholder="link" type="text"><p>---</p>
+              </div>
+<!--               <div class="useful-link" data-id="1">
+                <input name="usefulLinkText" class="useful-link-text" placeholder="title of the link" data-link-text="1" type="text"><input name="usefulLinksLink" data-link="1" placeholder="link" type="text"><p>---</p>
+              </div> -->
+            </div>
             <div class="add-link-section">
               <ion-icon name="add-circle-outline" class="add-link-button"></ion-icon><span>Add a link</span>
             </div>
