@@ -16,12 +16,15 @@
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
   <script defer src="js/script.js"></script>
+  <script src="./js/customElements.js"></script>
+
   <script type="module" defer src="js/controllers/docsController.js"></script>
 
   <title>China Documentaries Database</title>
 </head>
 <body>
-  <div class="header header-reg header-movies">
+  <app-header class= "header-reg header-movies"></app-header>
+<!--   <div class="header header-reg header-movies">
     <div class="header-top">
       <a href="">
         <img class="logo" src="img/CDD-logo.png" alt="China Documentaries Database logo">
@@ -66,6 +69,10 @@
       <p>documentaries</p>
       <h1>By title</h1>
     </div>
+  </div> -->
+  <div class="header-text">
+    <p>documentaries</p>
+    <h1>By title</h1>
   </div>
   <div class="grid-container">
     <div class="search-bar">
@@ -160,6 +167,6 @@
         <div>Z</div>
     </div>
   </div>
-
+  <app-footer></app-footer>
 </body>
 </html>

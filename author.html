@@ -16,6 +16,8 @@
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
   <script defer src="js/script.js"></script>
+  <script src="./js/customElements.js"></script>
+
   <script type="module" defer src="js/controllers/directorController.js"></script>
 
 
@@ -23,48 +25,7 @@
   <title>China Documentaries Database</title>
 </head>
 <body>
-  <div class="header">
-    <div class="header-top">
-      <a href="">
-        <img class="logo" src="img/CDD-logo.png" alt="China Documentaries Database logo">
-      </a>
-      <button class="btn-mobile-nav">
-        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-      </button>
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li>
-            <a href="#" class="main-nav-link">HOME</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link">+ Search</a>
-          </li>
-          <li>
-            <a href="authors.html" class="main-nav-link">+ Find by author</a>
-          </li>
-          <li>
-            <a href="movies.html" class="main-nav-link">+ Find by title</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link">+ Get a random one</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link">+ About</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link">&nbsp;</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link admin-link">+ Add a doc</a>
-          </li>
-          <li>
-            <a href="#" class="main-nav-link admin-link">+ Add an author</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <app-header></app-header>
   <div class="container">
     <div class="section-author">
       <!-- <div class="section-author-photo">
@@ -131,10 +92,6 @@
     </div>
   </div>
 <!--  -->
-  <footer>
-    <div class="container flex-footer">
-      <div>Copyright &copy; <span class="year">2027</span> by China Documentaries Database</div>
-    </div>
-  </footer>
+  <app-footer></app-footer>
 </body>
 </html>
