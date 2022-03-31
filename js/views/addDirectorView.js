@@ -3,15 +3,15 @@ class AddDirectorView {
   _addUsefulLinkSection = document.querySelector('.useful-links-section');
   _addUsefulLinkButton = document.querySelector('.add-link-button');
 
-  // addHandlerRender(handler) {
-  //   if (document.querySelector('.director-upload')) {
-  //     window.addEventListener('load', handler);
-  //     this._addUsefulLinkField();
-  //     console.log('tout est bon');
-  //   } else {
-  //     console.log('t\'es passé par là mais tu t\'arrete ici');
-  //   }
-  // }
+  addHandlerRender(handler) {
+    if (document.querySelector('.director-upload')) {
+      this._addUsefulLinkField();
+      this._addHandlerUpload(handler);
+      console.log('tout est bon');
+    } else {
+      console.log('t\'es passé par là mais tu t\'arrete ici');
+    }
+  }
 
   _addUsefulLinkField() {
     const block = this._addUsefulLinkSection;
@@ -28,8 +28,7 @@ class AddDirectorView {
     });
   }
 
-  addHandlerUpload(handler) {
-    this._addUsefulLinkField();
+  _addHandlerUpload(handler) {
     this._parentElement.addEventListener('submit', function(e) {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
@@ -39,7 +38,7 @@ class AddDirectorView {
   }
 
   addHandlerRedirect(id) {
-    window.location.href = `http://127.0.0.1:8887/author.html#${id}`;
+    window.location.href = `http://127.0.0.1:8887/director.html#${id}`;
   }
 };
 

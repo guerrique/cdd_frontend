@@ -20,10 +20,10 @@ class AppHeader extends HTMLElement {
             <a href="#" class="main-nav-link">+ Search</a>
           </li>
           <li>
-            <a href="authors.html" class="main-nav-link">+ Find by author</a>
+            <a href="directors.html" class="main-nav-link">+ Find by author</a>
           </li>
           <li>
-            <a href="movies.html" class="main-nav-link">+ Find by title</a>
+            <a href="documentaries.html" class="main-nav-link">+ Find by title</a>
           </li>
           <li>
             <a href="#" class="main-nav-link">+ Get a random one</a>
@@ -35,10 +35,10 @@ class AppHeader extends HTMLElement {
             <a href="#" class="main-nav-link">&nbsp;</a>
           </li>
           <li>
-            <a href="#" class="main-nav-link admin-link">+ Add a doc</a>
+            <a href="form-documentary.html" class="main-nav-link admin-link">+ Add a doc</a>
           </li>
           <li>
-            <a href="#" class="main-nav-link admin-link">+ Add an author</a>
+            <a href="form-director.html" class="main-nav-link admin-link">+ Add an author</a>
           </li>
         </ul>
       </nav>

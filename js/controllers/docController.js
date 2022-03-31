@@ -35,20 +35,18 @@ const controlAddDoc = async function(newDoc) {
 
 const init = function() {
   docView.addHandlerRender(controlDoc);
-  // addDocView.addHandlerRender(controlAddDoc);
-  addDocView.addHandlerUpload(controlAddDoc);
-
+  addDocView.addHandlerRender(controlAddDoc);
 };
 init();
 
 // ---------------------------------------------------------------------------------
-const docSumEl = document.querySelector('.section-doc');
-// console.log(docSumEl);
-docSumEl.addEventListener('click', function(e) {
-    e.target.closest('.doc-summary').classList.toggle('active');
+// const docSumEl = document.querySelector('.section-doc');
+// // console.log(docSumEl);
+// docSumEl.addEventListener('click', function(e) {
+//     e.target.closest('.doc-summary').classList.toggle('active');
 
-console.log(e);
-});
+// console.log(e);
+// });
 
 // /const authBioEl = document.querySelector('.section-author');
 // authBioEl.addEventListener('click', function(e) {
