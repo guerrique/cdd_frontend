@@ -13,7 +13,7 @@ export const state = {
 export const loadDirector = async function(id) {
   try {
     const data = await getJSON(`${API_URL}directors/${id}`);
-    console.log(data);
+    // console.log(data);
 
 
     // Getting the related Docs infos nicely flattened
@@ -40,6 +40,13 @@ export const loadDirector = async function(id) {
     });
     }
 
+    console.log(data.data.attributes.useful_links)
+    const usefulLinksLoad = data.data.attributes.useful_links;
+    const formattedLinks = [];
+    while (usefulLinksLoad.length > 0) {
+      formattedLinks.push(usefulLinksLoad.splice(0,2));
+    };
+
     const director = data.data.attributes;
     state.director = {
       id: id,
@@ -48,7 +55,7 @@ export const loadDirector = async function(id) {
       bioLong: director.bio_long,
       bioShort: director.bio_short,
       bioSource: director.bio_source,
-      usefulLinks: director.useful_links,
+      usefulLinks: formattedLinks,
       docs: docs
     };
     console.log(state.director);
@@ -60,11 +67,11 @@ export const loadDirector = async function(id) {
 
 export const uploadDirector = async function(newDirector) {
   try {
-    const usefulLinks = fieldsInArray(newDirector, 'useful');
+    const usefulLinksForm = fieldsInArray(newDirector, 'useful');
 
     const director = {
       name: newDirector.name,
-      useful_links: usefulLinks,
+      useful_links: usefulLinksForm,
       bio_short: newDirector.bioShort,
       bio_long: newDirector.bioLong,
       bio_source: newDirector.bioSource,
@@ -73,7 +80,7 @@ export const uploadDirector = async function(newDirector) {
       photo: newDirector.photo
     };
     const data = await sendJSON(`${API_URL}/directors`, director);
-    console.log(data);
+    // console.log(data);
     state.director = {
       id: data.data.id,
       name: data.data.attributes.name,

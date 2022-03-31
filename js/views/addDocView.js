@@ -5,16 +5,17 @@ class AddDocView {
   _addAwardSection = document.querySelector('.add-award-section');
   _addAwardButton = document.querySelector('.add-award-button');
 
-  // addHandlerRender(handler) {
-  //   if (document.querySelector('.doc-upload')) {
-  //     window.addEventListener('load', handler);
-  //     this._addUsefulLinkField();
-  //     this._addAwardField();
-  //     console.log('tout est bon');
-  //   } else {
-  //     console.log('t\'es passé par là mais tu t\'arrete ici');
-  //   }
-  // }
+  addHandlerRender(handler) {
+    if (document.querySelector('.doc-upload')) {
+      this._addUsefulLinkField();
+      this._addAwardField();
+      this._addHandlerUpload(handler);
+      console.log('tout est bon');
+    } else {
+      console.log('t\'es passé par là mais tu t\'arrete ici');
+    }
+  }
+
 
   _addUsefulLinkField() {
     const block = this._addUsefulLinkSection;
@@ -47,10 +48,10 @@ class AddDocView {
     });
   }
 
-  addHandlerUpload(handler) {
+  _addHandlerUpload(handler) {
     console.log('ça se passe');
-    this._addUsefulLinkField();
-    this._addAwardField();
+    // this._addUsefulLinkField();
+    // this._addAwardField();
 
     this._parentElement.addEventListener('submit', function(e) {
       e.preventDefault();

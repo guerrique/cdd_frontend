@@ -15,7 +15,7 @@ const controlDirector = async function() {
     await model.loadDirector(id);
 
     // RENDERING DIRECTOR
-    console.log(model.state.director);
+    // console.log(model.state.director);
     directorView.render(model.state.director);
 
   } catch (err) {
@@ -26,13 +26,8 @@ const controlDirector = async function() {
 const controlAddDirector = async function(newDirector) {
   try {
     await model.uploadDirector(newDirector);
-
     addDirectorView.addHandlerRedirect(model.state.director.id);
 
-
-    // no need?
-    // window.location.href = `http://127.0.0.1:8887/author.html#${model.state.director.id}`;
-    // directorView.render(model.state.director);
   } catch(err) {
     console.log(err)
   }
@@ -40,8 +35,8 @@ const controlAddDirector = async function(newDirector) {
 
 const init = function() {
   directorView.addHandlerRender(controlDirector);
-  // addDirectorView.addHandlerRender(controlAddDirector);
-  addDirectorView.addHandlerUpload(controlAddDirector);
+  addDirectorView.addHandlerRender(controlAddDirector);
+  // addDirectorView.addHandlerUpload(controlAddDirector);
 };
 init();
 

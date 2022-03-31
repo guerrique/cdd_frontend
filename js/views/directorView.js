@@ -1,13 +1,20 @@
 
 class DirectorView {
   _parentElement = document.querySelector('.section-author');
+  _container = document.querySelector('.container');
   _data;
 
   render(data) {
     this._data = data;
+    console.log(this._data.usefulLinks);
     const markup = this._generateMarkup();
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    if(this._data.usefulLinks.length !== 0) {
+       const linksMarkup = this._generateLinksMarkup();
+       this._container.insertAdjacentHTML('afterend', linksMarkup);
+       }
+
   }
 
   addHandlerRender(handler) {
@@ -42,6 +49,24 @@ class DirectorView {
             </ul>
           </div>
         </div>`;
+  }
+
+  _generateLinksMarkup(){
+    return `  <div class="doc-more-infos">
+    <div class="container">
+      <h2>To go further...</h2>
+      <div class="doc-links">
+        <ul class="doc-links-list">
+        ${this._data.usefulLinks.map(link => {
+          return `<li>
+            <a href="${link[1]}">${link[0]}</a>
+          </li>`
+        })}
+
+        </ul>
+      </div>
+    </div>
+  </div>`
   }
 
   _clear() {

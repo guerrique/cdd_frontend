@@ -14,7 +14,7 @@ export const loadDoc = async function(id) {
   try {
 
     const data = await getJSON(`${API_URL}docs/${id}`);
-    console.log(data);
+    // console.log(data);
 
     // Getting the related Directors infos nicely flattened
     const flattenObject = (obj) => {
@@ -41,6 +41,12 @@ export const loadDoc = async function(id) {
       });
     }
 
+    const usefulLinksLoad = data.data.attributes.useful_links;
+    const formattedLinks = [];
+    while (usefulLinksLoad.length > 0) {
+      formattedLinks.push(usefulLinksLoad.splice(0,2));
+    };
+
     const doc = data.data.attributes;
     state.doc = {
       id: id,
@@ -53,11 +59,10 @@ export const loadDoc = async function(id) {
       docTextSource: doc.doc_text_source,
       duration: doc.duration,
       trailerLink: doc.trailer_link,
-      usefulLinks: doc.useful_links,
+      usefulLinks: formattedLinks,
       awards: doc.awards,
       directors: directors
     };
-    // console.log(state.doc);
   } catch (err) {
     console.error(`Error from the doc model: ${err}`);
     throw(err);
