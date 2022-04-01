@@ -15,7 +15,7 @@ const controlDirector = async function() {
     await model.loadDirector(id);
 
     // RENDERING DIRECTOR
-    // console.log(model.state.director);
+    console.log(model.state.director);
     directorView.render(model.state.director);
 
   } catch (err) {

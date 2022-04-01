@@ -26,7 +26,7 @@ const controlDoc = async function() {
 const controlAddDoc = async function(newDoc) {
   try {
     await model.uploadDoc(newDoc);
-    console.log(model.state.doc.directors);
+    // console.log(model.state.doc.directors);
     addDocView.addHandlerRedirect(model.state.doc.id);
   } catch(err) {
     throw err;

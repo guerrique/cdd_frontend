@@ -6,7 +6,7 @@ class DirectorView {
 
   render(data) {
     this._data = data;
-    console.log(this._data.usefulLinks);
+    // console.log(this._data.usefulLinks);
     const markup = this._generateMarkup();
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);

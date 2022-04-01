@@ -63,6 +63,7 @@ export const loadDoc = async function(id) {
       awards: doc.awards,
       directors: directors
     };
+    console.log(state.doc);
   } catch (err) {
     console.error(`Error from the doc model: ${err}`);
     throw(err);
@@ -89,7 +90,6 @@ export const uploadDoc = async function(newDoc) {
     };
 
     const data = await sendJSON(`${API_URL}/docs`, doc);
-
     state.doc = {
       id: data.data.id,
       name: data.data.attributes.name,

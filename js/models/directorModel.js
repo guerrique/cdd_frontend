@@ -13,8 +13,8 @@ export const state = {
 export const loadDirector = async function(id) {
   try {
     const data = await getJSON(`${API_URL}directors/${id}`);
-    // console.log(data);
-
+    console.log(data);
+    console.log(data.included);
 
     // Getting the related Docs infos nicely flattened
     const flattenObject = (obj) => {
@@ -31,16 +31,18 @@ export const loadDirector = async function(id) {
       return flattened;
     };
 
-      const docs = [];
-    if(data.included) {
-      const docs = data.included.map(doc => {
-      doc = flattenObject(doc);
-      delete doc.type;
-      return doc;
-    });
+    let docs = [];
+      if(data.included) {
+        docs = data.included.map(doc => {
+        doc = flattenObject(doc);
+        delete doc.type;
+        return doc;
+        // docs.push(doc);
+      });
+    console.log(docs);
+    // return docs;
     }
-
-    console.log(data.data.attributes.useful_links)
+    // console.log(data.data.attributes.useful_links)
     const usefulLinksLoad = data.data.attributes.useful_links;
     const formattedLinks = [];
     while (usefulLinksLoad.length > 0) {
