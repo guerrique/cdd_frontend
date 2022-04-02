@@ -4,6 +4,7 @@
 import { API_URL } from '../config.js';
 import { getJSON } from '../helpers.js';
 import { sendJSON } from '../helpers.js';
+import { deleteJSON } from '../helpers.js';
 import { fieldsInArray } from '../helpers.js';
 
 export const state = {
@@ -63,7 +64,7 @@ export const loadDoc = async function(id) {
       awards: doc.awards,
       directors: directors
     };
-    console.log(state.doc);
+    // console.log(state.doc);
   } catch (err) {
     console.error(`Error from the doc model: ${err}`);
     throw(err);
@@ -120,6 +121,15 @@ export const uploadDoc = async function(newDoc) {
     // console.log(state.doc);
 
   } catch (err) {
+    throw err;
+  }
+}
+
+export const deleteDoc = async function(id) {
+  try {
+    const res = await deleteJSON(`${API_URL}docs/${id}`);
+    console.log(res);
+  } catch(err) {
     throw err;
   }
 }
