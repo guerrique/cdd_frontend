@@ -74,7 +74,10 @@ export const uploadDoc = async function(newDoc) {
   try {
     const usefulLinks = fieldsInArray(newDoc, 'useful');
     const awards = fieldsInArray(newDoc, 'award');
-    const directors = [newDoc.directors];
+    const directors = [];
+    newDoc.directors.split(',').forEach(id => directors.push(id));
+
+    [newDoc.directors];
     const doc = {
       name: newDoc.name,
       chinese_name: newDoc.chineseName,
@@ -84,34 +87,37 @@ export const uploadDoc = async function(newDoc) {
       doc_text_short: newDoc.docTextShort,
       doc_text_long: newDoc.docTextLong,
       doc_text_source: newDoc.docTextSource,
-      directors_ids: directors,
+      director_ids: directors,
       awards: awards,
       useful_links: usefulLinks,
       trailer_link: newDoc.trailerLink
     };
-    console.log('doc before upload', doc);
+    // console.log('doc before upload', doc);
 
-    // const data = await sendJSON(`${API_URL}/docs`, doc);
-    // state.doc = {
-    //   id: data.data.id,
-    //   name: data.data.attributes.name,
-    //   chineseName: data.data.attributes.chinese_name,
-    //   year: data.data.attributes.year,
-    //   duration: data.data.attributes.duration,
-    //   poster: data.data.attributes.poster,
-    //   docTextShort: data.data.attributes.doc_text_short,
-    //   docTextLong: data.data.attributes.doc_text_long,
-    //   docTextSource: data.data.attributes.doc_text_source,
-    //   awards: data.data.attributes.awards,
-    //   usefulLinks: data.data.attributes.useful_links,
-    //   directors: data.data.relationships.directors
-    // }
+    const data = await sendJSON(`${API_URL}/docs`, doc);
+    // console.log('reply from API', data);
+    state.doc = {
+      id: data.data.id,
+      name: data.data.attributes.name,
+      chineseName: data.data.attributes.chinese_name,
+      year: data.data.attributes.year,
+      duration: data.data.attributes.duration,
+      poster: data.data.attributes.poster,
+      docTextShort: data.data.attributes.doc_text_short,
+      docTextLong: data.data.attributes.doc_text_long,
+      docTextSource: data.data.attributes.doc_text_source,
+      awards: data.data.attributes.awards,
+      usefulLinks: data.data.attributes.useful_links,
+      directors: data.data.relationships.directors
+    }
 
-    // const usefulLinksRes = state.doc.usefulLinks;
-    // state.doc.usefulLinks = [];
-    // while (usefulLinksRes.length > 0) {
-    //   state.doc.usefulLinks.push(usefulLinksRes.splice(0,2));
-    // };
+    const usefulLinksRes = state.doc.usefulLinks;
+    state.doc.usefulLinks = [];
+    while (usefulLinksRes.length > 0) {
+      state.doc.usefulLinks.push(usefulLinksRes.splice(0,2));
+    };
+
+    // console.log(state.doc);
 
   } catch (err) {
     throw err;
