@@ -29,7 +29,7 @@ class DocView {
       <h3 class="doc-author">
        by
         ${this._data.directors.map(director => {
-          return `<a href="#">${director.name} </a>`
+          return `<a href="director.html#${director.id}">${director.name} </a>`
         })}
 
       </h3>
