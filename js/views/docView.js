@@ -2,6 +2,7 @@ class DocView {
   _parentElement = document.querySelector('.section-doc');
   _moreInfoElement = document.querySelector('.doc-more-infos');
   _data;
+  _deleteBtn = document.querySelector('.delete-doc');
 
   render(data) {
     this._data = data;
@@ -10,11 +11,11 @@ class DocView {
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
     this._moreInfoElement.insertAdjacentHTML('afterbegin', markupInfo);
-
   }
 
   _clear () {
     this._parentElement.innerHTML = '';
+    this._moreInfoElement.innerHTML = '';
   }
 
   addHandlerRender(handler) {
@@ -88,6 +89,17 @@ class DocView {
           })}
           </ul>
         </div>`}`
+  }
+
+  addHandlerDelete(handler) {
+    if (!document.querySelector('.doc-upload')) {
+
+    this._deleteBtn.addEventListener('click', handler);
+  }
+  }
+
+  addHandlerRedirect() {
+    window.location.href = 'http://127.0.0.1:8887/documentaries.html';
   }
 }
 

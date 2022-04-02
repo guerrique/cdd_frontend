@@ -38,6 +38,21 @@ export const sendJSON = async function(url, uploadData) {
   }
 }
 
+export const deleteJSON = async function(url) {
+  try {
+    const res = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
+    return res;
+  } catch(err) {
+    throw err;
+  }
+}
+
 export const sortArrObj = function(array) {
   const sortedArray = array.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   let abcSortedArray = sortedArray.reduce((previous, current) => {

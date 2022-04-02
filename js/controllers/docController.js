@@ -16,7 +16,7 @@ const controlDoc = async function() {
 
     // RENDERING DOCUMENTARY
     docView.render(model.state.doc);
-    console.log(model.state.doc);
+    // console.log(model.state.doc);
 
   } catch (err) {
     console.log(err);
@@ -29,12 +29,23 @@ const controlAddDoc = async function(newDoc) {
     await model.uploadDoc(newDoc);
     addDocView.addHandlerRedirect(model.state.doc.id);
   } catch(err) {
-    throw err;
+    console.log(err);
+  }
+}
+
+const controlDeleteDoc = async function(docId) {
+  try {
+    const id = window.location.hash.slice(1);
+    await model.deleteDoc(id);
+    docView.addHandlerRedirect();
+  } catch(err) {
+    console.log(err);
   }
 }
 
 const init = function() {
   docView.addHandlerRender(controlDoc);
+  docView.addHandlerDelete(controlDeleteDoc);
   addDocView.addHandlerRender(controlAddDoc);
 };
 init();
