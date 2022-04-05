@@ -18,6 +18,8 @@
   <script defer src="js/script.js"></script>
   <script defer src="js/customElements.js"></script>
   <script type= "module" defer src="js/controllers/directorController.js"></script>
+  <script type= "module" defer src="js/controllers/searchController.js"></script>
+
 
   <!-- <script defer src="js/index.js"></script> -->
 
@@ -65,9 +67,18 @@
         </ul>
       </nav>
     </div>
-    <div class="search-bar-homepage">
+<!--     <div class="search-bar-homepage">
+
       <input type="search" placeholder="Search">
       <ion-icon class="icon-search" name="search-outline"></ion-icon>
+    </div> -->
+    <div class="search-bar-homepage">
+      <form class="search">
+        <input type="search" placeholder="Search" class="search__field">
+        <!-- <button class="btn search__btn"> -->
+          <ion-icon class="icon-search" name="search-outline"></ion-icon>
+        <!-- </button> -->
+      </form>
     </div>
   </div>
   <div class="section-findby section-findby-author">
