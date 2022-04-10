@@ -7,7 +7,7 @@ export const state = {
 
 export const loadDirectors = async function() {
   try {
-    const data = await getJSON(`${API_URL}/directors`);
+    const data = await getJSON(`${API_URL}directors`);
 
     const formatResponse = function(response) {
       const formatted = [];

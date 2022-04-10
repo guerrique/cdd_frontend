@@ -15,8 +15,28 @@ const docsController = async function() {
   }
 }
 
+const controlSearch = async function() {
+  try {
+    const query = docsView.getQuery();
+    if(!query) return;
+
+    // LOAD SEARCH RESULTS
+    await model.loadDocs(query);
+
+    // DISPLAY SEARCH RESULTS
+    console.log(model.state.search.results);
+    docsView.render(model.state.search.results);
+
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 const init = function() {
   docsView.addHandlerRender(docsController);
+  // searchView.addHandlerSearch(controlSearchResults);
+  docsView.addHandlerSearch(controlSearch);
+
   // window.addEventListener('load', docsController);
 }
 init();

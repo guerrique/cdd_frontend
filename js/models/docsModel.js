@@ -3,13 +3,15 @@ import { getJSON, sortArrObj} from '../helpers.js';
 
 
 export const state = {
-  docs: []
+  docs: [],
+  search: {
+    query: '',
+    results: []
+  }
 };
 
-export const loadDocs = async function() {
+export const loadDocs = async function(query) {
   try {
-    const data = await getJSON(`${API_URL}/docs`);
-
     const formatResponse = function(response) {
       const formatted = [];
       response.forEach(obj => {
@@ -21,8 +23,21 @@ export const loadDocs = async function() {
       });
       return sortArrObj(formatted);
     }
+    if(!query) {
+
+    const data = await getJSON(`${API_URL}/docs`);
+
 
     this.state.docs = formatResponse(data.data);
+  } else {
+    this.state.search.query = query;
+
+    const data = await getJSON(`${API_URL}/docs?search=${query}`);
+    // console.log(data);
+    this.state.search.results = formatResponse(data.data);
+    // this.state.docs = formatResponse(data.data);
+    console.log(this.state.search.results);
+  }
 
   } catch(err) {
     console.log(`Error from the docSS model:${err}`);
