@@ -2,10 +2,7 @@
 // http library (responsible for making and receiving AJAX requests)
 
 import { API_URL } from '../config.js';
-import { getJSON } from '../helpers.js';
-import { sendJSON } from '../helpers.js';
-import { deleteJSON } from '../helpers.js';
-import { fieldsInArray } from '../helpers.js';
+import { getJSON, sendJSON, deleteJSON, fieldsInArray } from '../helpers.js';
 
 export const state = {
   doc: {}

@@ -1,16 +1,32 @@
 class DocsView {
   _data;
   _parentElement = document.querySelector('.section-authors');
+  _searchElement = document.querySelector('.search');
 
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }
 
+  addHandlerSearch(handler) {
+    this._searchElement.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handler();
+    })
+      console.log(this._searchElement);
+  }
+
   render(data) {
     this._data = data;
     this._clear();
-    const markup = this._generateMarkup();
-    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    console.log(this._data);
+    console.log(this._data === {});
+    if (this._data === {}) {
+      const markup = '<h3>No documentary found with that name, sorry</h3>';
+      this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    } else {
+      const markup = this._generateMarkup();
+      this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    }
   }
 
   _clear() {
@@ -26,6 +42,17 @@ class DocsView {
          }).join('')}</ul>`
       })
   }
+
+  getQuery() {
+    const query = this._searchElement.querySelector('.search__field').value;
+    // this._clearInput();
+    return query;
+  }
+
+  // _clearInput() {
+  //   this._parentElement.querySelector('.search__field').value = '';
+  // }
+
 }
 
 export default new DocsView();
