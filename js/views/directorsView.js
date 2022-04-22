@@ -1,6 +1,7 @@
 class DirectorsView {
   _data;
   _parentElement = document.querySelector('.section-authors');
+  _searchElement = document.querySelector('.search');
 
 
   render(data) {
@@ -16,6 +17,13 @@ class DirectorsView {
     window.addEventListener('load', handler);
   }
 
+  addHandlerSearch(handler) {
+    this._searchElement.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handler();
+    })
+  }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }
@@ -27,8 +35,19 @@ class DirectorsView {
                   ${ent[1].map(obj => {
         return `<li><a href="author.html#${obj.id}">${obj.name}</a></li>`
          }).join('')}</ul>`
-      })
-    }
+    })
   }
+
+  getQuery() {
+    const query = this._searchElement.querySelector('.search__field').value;
+    this._clearInput();
+    return query;
+  }
+
+  _clearInput() {
+    this._searchElement.querySelector('.search__field').value = '';
+  }
+}
+
 
 export default new DirectorsView();
