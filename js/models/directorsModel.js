@@ -2,13 +2,15 @@ import { API_URL } from '../config.js';
 import { getJSON, sortArrObj } from '../helpers.js';
 
 export const state = {
-  directors: []
+  directors: [],
+  search: {
+    query: '',
+    results: []
+  }
 }
 
-export const loadDirectors = async function() {
+export const loadDirectors = async function(query) {
   try {
-    const data = await getJSON(`${API_URL}directors`);
-
     const formatResponse = function(response) {
       const formatted = [];
       response.forEach(obj => {
@@ -20,8 +22,17 @@ export const loadDirectors = async function() {
       });
       return sortArrObj(formatted);
     }
-
-    this.state.directors = formatResponse(data.data);
+      console.log(query === '');
+      console.log(!query || query === '');
+      if(!query || query === '') {
+        const data = await getJSON(`${API_URL}directors`);
+        this.state.directors = formatResponse(data.data);
+      } else {
+        this.state.search.query = query;
+        const data = await getJSON(`${API_URL}/directors?search=${query}`);
+        this.state.search.results = formatResponse(data.data);
+        console.log(this.state.search.results);
+      }
 
   } catch(err) {
     console.log(`Error from the directorSS model:${err}`);
