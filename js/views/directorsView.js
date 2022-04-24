@@ -33,7 +33,7 @@ class DirectorsView {
       return `<h1 class="abc-title">${ent[0]}</h1>
                 <ul class="authors-list">
                   ${ent[1].map(obj => {
-        return `<li><a href="author.html#${obj.id}">${obj.name}</a></li>`
+        return `<li><a href="director.html#${obj.id}">${obj.name}</a></li>`
          }).join('')}</ul>`
     })
   }
